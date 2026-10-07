@@ -1,0 +1,7 @@
+version: v1.1.0
+steps: 
+    - build: -t $Registry/warehouse-router:{{.Run.ID}} -f Dockerfile .
+    - build: -t $Registry/warehouse-router:latest -f Dockerfile .
+push:
+    - $Registry/warehouse-router:{{.Run.ID}}
+    - $Registry/warehouse-router:latest
